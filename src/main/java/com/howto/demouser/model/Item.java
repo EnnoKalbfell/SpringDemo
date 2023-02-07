@@ -1,28 +1,19 @@
 package com.howto.demouser.model;
 
 import jakarta.persistence.*;
+
 import java.util.Set;
 
 @Entity
-@Table(name="item")
+@Table(name = "item")
 public class Item {
     @Id
-    @GeneratedValue( strategy = GenerationType.AUTO )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
-    @ManyToMany()
-    @JoinTable(
-            name = "items_orders",
-            joinColumns = @JoinColumn(name = "item_id"),
-            inverseJoinColumns = @JoinColumn(name = "order_id")
-    )
-    Set<Order> linkedOrders;
-
-
+    @ManyToMany(mappedBy = "items")
+    private Set<Order> orders;
     private String productName;
-
     private Integer taxTypeId;
-
     private Double price;
 
     public String getProductName() {
@@ -57,11 +48,11 @@ public class Item {
         this.id = id;
     }
 
-    public Set<Order> getLinkedOrders() {
-        return linkedOrders;
+    public Set<Order> getOrders() {
+        return orders;
     }
 
-    public void setLinkedOrders(Set<Order> linkedOrders) {
-        this.linkedOrders = linkedOrders;
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
     }
 }

@@ -1,6 +1,7 @@
 package com.howto.demouser.model;
 
 import jakarta.persistence.*;
+
 import java.util.Date;
 import java.util.Set;
 
@@ -10,10 +11,9 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
-    @ManyToMany(mappedBy = "items")
+    @ManyToMany
+    @JoinTable(name = "item_order", joinColumns = @JoinColumn(name = "order_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
     private Set<Item> items;
-
     private Date date;
 
     public Date getDate() {
@@ -31,5 +31,4 @@ public class Order {
     public void setId(Integer id) {
         this.id = id;
     }
-
 }
