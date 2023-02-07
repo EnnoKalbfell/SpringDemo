@@ -1,6 +1,6 @@
 package com.howto.demouser.serviceinterfaces;
 
-import com.howto.demouser.model.Order;
+import com.howto.demouser.model.Purchases;
 import com.howto.demouser.model.Costumer;
 import org.springframework.http.ResponseEntity;
 
@@ -8,9 +8,9 @@ import org.springframework.http.ResponseEntity;
 public interface OrderService {
 
 
-    ResponseEntity<Order> placeOrder(long id);
+    ResponseEntity<Purchases> placeOrder(long id);
 
-    Iterable<Order> getAllOrdersFromUser(Costumer costumer);
+    Iterable<Purchases> getAllOrdersFromUser(Costumer costumer);
 
-    Iterable<Order> getAllOrdersr();
+    Iterable<Purchases> getAllOrdersr();
 }

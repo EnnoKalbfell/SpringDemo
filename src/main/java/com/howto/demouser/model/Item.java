@@ -11,7 +11,7 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @ManyToMany(mappedBy = "items")
-    private Set<Order> orders;
+    private Set<Purchases> orders;
     private String productName;
     private Integer taxTypeId;
     private Double price;
@@ -48,11 +48,11 @@ public class Item {
         this.id = id;
     }
 
-    public Set<Order> getOrders() {
+    public Set<Purchases> getOrders() {
         return orders;
     }
 
-    public void setOrders(Set<Order> orders) {
+    public void setOrders(Set<Purchases> orders) {
         this.orders = orders;
     }
 }

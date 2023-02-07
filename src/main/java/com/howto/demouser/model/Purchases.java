@@ -6,13 +6,13 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "order")
-public class Order {
+@Table(name = "purchase")
+public class Purchases {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @ManyToMany
-    @JoinTable(name = "item_order", joinColumns = @JoinColumn(name = "order_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
+    @JoinTable(name = "item_purchase", joinColumns = @JoinColumn(name = "purchase_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
     private Set<Item> items;
     private Date date;
 
